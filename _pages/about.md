@@ -2,7 +2,7 @@
 title: "About"
 permalink: /about/
 header:
-  image: "/images/rainbowbridge.jpeg"
+  image: "/pictures/rainbowbridge.jpeg"
 ---
 
 I work on the development of a Safety Analysis Software for Nuclear Power plants and as Data expert for the Analysis of the events related to the Fukushima Daiichi NPP accident.
@@ -12,4 +12,4 @@ My main roles include the implementation of models and algorithms to perform the
 This is what progressively pushed me towards Data Science and grew my interest in data-driven business solutions.
 
 I am a Machine Learning passionate and try to leverage it to find elegant solutions to the work projects and everyday life. I am currently enrolled in a Data Science School to expand my skills in AI and ML:
-[https://tokyodatascience.com/] 
+[https://tokyodatascience.com/]

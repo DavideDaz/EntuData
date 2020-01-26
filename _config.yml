@@ -108,7 +108,7 @@ analytics:
 # Site Author
 author:
   name             : "Davide Concu"
-  avatar           : "/images/bioSurf.jpeg"
+  avatar           : "/pictures/bioSurf.jpeg"
   bio              : "Data Science Portfolio"
   location         : "Tokyo"
   email            :
