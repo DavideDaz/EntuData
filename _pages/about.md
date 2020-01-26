@@ -2,8 +2,7 @@
 title: "About"
 permalink: /about/
 header:
-  image: "/pictures/TokyoResize.jpg"
-
+  image: "pictures/rainbridge.jpeg"
 ---
 
 I work on the development of a Safety Analysis Software for Nuclear Power plants and as Data expert for the Analysis of the events related to the Fukushima Daiichi NPP accident.
