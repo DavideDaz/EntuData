@@ -108,7 +108,7 @@ analytics:
 # Site Author
 author:
   name             : "Davide Concu"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/images/bioSurf.jpeg"
   bio              : "Data Science Portfolio"
   location         : "Tokyo"
   email            :
@@ -120,7 +120,7 @@ author:
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
     - label: "Linkedin"
-      icon: "fab fa-fw linkedin"
+      icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/davide-concu-a4591746/"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
