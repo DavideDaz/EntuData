@@ -2,6 +2,6 @@
 title: "About"
 permalink: /about/
 header:
-  image: "/pictures/rainbowbridge.jpeg"
-  
+  image: "/pictures/rainbridge.jpeg"
+
 ---
