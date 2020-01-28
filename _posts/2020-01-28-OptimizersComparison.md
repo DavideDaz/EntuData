@@ -25,7 +25,7 @@ Please note that some of these techniques, in particular the last three, are par
 
 The learning rate is a crucial parameter that determines the dimension of step to upload the weights after each iteration during the gradient descent. The simple SGD employs a constant learning rate. This means that all the parameters are updated with the same step independently from the "shape" of the loss function. In this situation, this can result in a slow journey to the local minima as shown in the case of a quadratic loss function with a poorly conditioned Hessian matrix of Figure 1, considering a simple case of two weights. Note that the loss is represented with contour lines as a function of the two parameters.
 
-<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/MomentumandSGD.png" alt="SGD and SGD with momentum" caption="Figure 1: SGD and SGD with momentum">
+<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/MomentumandSGD.png" alt="SGD and SGD with momentum" <figcaption>Figure 1: SGD and SGD with momentum</figcaption>
 
 It is clear that to reach faster the local minima, the update on the horizontal direction has to move with a "faster peace". Now, given that the actual step is evaluated by multiplying the calculated gradient to the learning rate, it is reasonable to think that if the value of the gradient had a major increase on a particular direction, this trend will continue for the next step, unless sudden changes in the loss function.
 
@@ -36,5 +36,5 @@ We can think of the gradient as a sort of velocity, with its magnitude and a dir
 
 The result it is a faster descent towards the local minima with a dumped oscillation of the weights as in Figure 2.
 
-<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/Momentum.png" alt="SGD with momentum" caption="Figure 2: SGD with momentum">
-{% include img caption="This is a sample gallery with **Markdown support**." %}
+<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/Momentum.png" alt="SGD with momentum" >
+<figcaption>Figure 2: SGD with momentum</figcaption>
