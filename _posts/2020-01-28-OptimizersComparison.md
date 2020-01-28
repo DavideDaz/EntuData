@@ -29,7 +29,7 @@ The learning rate is a crucial parameter that determines the dimension of step t
 
 It is clear that to reach faster the local minima, the update on the horizontal direction has to move with a "faster peace". Now, given that the actual step is evaluated by multiplying the calculated gradient to the learning rate, it is reasonable to think that if the value of the gradient had a major increase on a particular direction, this trend will continue for the next step, unless sudden changes in the loss function.
 
-We can think of the gradient as a sort of velocity, with its magnitude and a direction, somehow pointing with a certain intensity to the local minima. It can be therefore advantageous to take advantage of the momentum given by the previous iteration to speed up the learning process. At the same time we don't want to accelerate indefinitely and amplify too much the time step as we can overshoot our minima target. Hence, without going too much in deep with the physical parallel of momentum (whose clear explanation you can find [here](http://www.deeplearningbook.org/contents/optimization.html)for the SGD with momentum implementation we mainly need two ingredients:
+We can think of the gradient as a sort of velocity, with its magnitude and a direction, somehow pointing with a certain intensity to the local minima. It can be therefore advantageous to take advantage of the momentum given by the previous iteration to speed up the learning process. At the same time we don't want to accelerate indefinitely and amplify too much the time step as we can overshoot our minima target. Hence, without going too much in deep with the physical parallel of momentum (whose clear explanation you can find [here](http://www.deeplearningbook.org/contents/optimization.html) for the SGD with momentum implementation we mainly need two ingredients:
 
 - A variable $$v that plays the role of velocity
 - A friction coefficient that introduces a gradual (exponential) decay of the velocity term in order to dump the oscillations in the weights updates, reaching a terminal velocity close to the minima.
@@ -37,3 +37,4 @@ We can think of the gradient as a sort of velocity, with its magnitude and a dir
 The result it is a faster descent towards the local minima with a dumped oscillation of the weights as in Figure 2.
 
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/Momentum.png" alt="SGD with momentum" caption="Figure 2: SGD with momentum">
+{% include img caption="This is a sample gallery with **Markdown support**." %}
