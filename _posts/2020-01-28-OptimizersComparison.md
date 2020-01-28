@@ -13,10 +13,18 @@ Rather than a very complex net and taking advantage of some assignment and simil
 
 In this post I will start from a simple quadratic regression to compare the most common Optimizers currently employed to train ML models:
 
-* SGD (Given the few amount of generated data I neglected the minibatch implementation, considering a unique batch of 100 elements)
-* SGD with momentum
+* SGD with Momentum
 * SGD with Nesterov momentum
 * AdaGrad and its evolution in RSMprop
 * Adam   
 
-Please note that some of these techniques, in particular the last three, are particularly conceived for applications to deep learning in cases with complex landscape loss functions (Like the one at the head of this post taken from [losslandscape](https://losslandscape.com/[]), which I strongly suggest to take a look at). Their use on a concave function may therefore lead to the expected result but still gives the clear idea of the idea behind them.
+Please note that some of these techniques, in particular the last three, are particularly conceived for applications to deep learning in cases with complex landscape loss functions (Like the one at the head of this post taken from [losslandscape](https://losslandscape.com/), which I strongly suggest to take a look at). Their use on a concave function may therefore lead to the expected result but still gives the clear idea of the rationale behind them.
+
+
+## SGD with Momentum
+
+The learning rate is a crucial parameter that determines the dimension of step to upload the weights after each iteration during the gradient descent. The simple SGD employs a constant learning rate. This means that all the parameters are updated with the same step independently from the "shape" of the loss function. In this situation, this can result in a slow journey to the local minima as shown in the case of a quadratic loss function with a poorly conditioned Hessian matrix of Figure 1, considering a simple case of two weights. Note that the loss is represented with contour lines as a function of the two parameters.
+
+<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/MomentumandSGD.png" alt="Simple SGD(left) and SGD with momentum(right)">
+
+It is clear that to reach faster the local minima, the update on the horizontal direction has to move with a "faster peace". Now, given that the actual step is evaluated by multiplying the calculated gradient to the learning rate, it is reasonable to think that if the value of the gradient had a major increase on a particular direction, this trend will continue for the next step, unless sudden changes in the loss function.
