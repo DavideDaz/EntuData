@@ -47,4 +47,4 @@ The result it is a faster descent towards the local minima with a dumped oscilla
 
 The gradient is expressed by:
 
-$$ **b** \leftarrow \frac{1}{m}\nabla_\theta$$
+$$ textf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(textf{f}(textf{x}ˆ(i);textf{/theta}),textf{y}ˆ(i))$$
