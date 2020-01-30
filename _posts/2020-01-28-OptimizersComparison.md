@@ -5,6 +5,9 @@ tags: [machine learning, data science, optimizers, machine learning theory]
 header:
   image: "/OptimizerComparison/loss-landscapeR.jpg"
 excerpt: "Machine Learning Projects, Optimizer Comparison, Data Science"
+toc: true
+toc_label: "Contents"
+toc_icon: "cog"
 ---
 
 During my study at Tokyo Data Science I am constantly exploring new topics of Machine Learning and covering the theoretical bases of the technique employed to develop the models. If from one hand it comes easy to get the general idea of a particular method, on the other the understanding of the implementation on the code and its real effect on the model bear a certain level of abstraction.This is especially true if dealing with deep neural network, in which the choice of a particular parameter or setup is integrated in a elaborated architecture and the real perception of its effect is often clouded by the complexity of the net.
