@@ -45,6 +45,13 @@ The result it is a faster descent towards the local minima with a dumped oscilla
 
 ## SGD with Momentum implementation
 
-The gradient is expressed by:
+Its implementation is pretty straightforward. Please note that given the few data and the simple case we are studying, a unique batch including all the samples has been considered.
 
-$$ textf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(textf{f}(textf{x}ˆ(i);textf{/theta}),textf{y}ˆ(i))$$
+* Compute the gradient estimate:
+$$ textbf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(textbf{f}(textbf{x}ˆ(i);textbf{/theta}),textbf{y}ˆ(i))$$
+* Compute the velocity update:
+$ textbf{v} \leftarrow \alfatextbf{v}-\epsilontextbf{g}
+* Apply update:
+$ textbf{\theta} \leftarrow textbf{\theta}\alfatextbf{v}
+
+As specified in the Machine Learning text, "the step size depends on how large and how aligned a sequence of gradients are". If the gradient keeps pointing on the same direction its value contributes to amplify the step on the next iteration, "if the moment algorithm always observe gradient **g**, then it will accelerate in the direction **-g**".
