@@ -57,3 +57,5 @@ $$ \mathbf{\theta} \leftarrow \mathbf{\theta}+\textbf{v}$$
 As specified in the Machine Learning text, "the step size depends on how large and how aligned a sequence of gradients are". If the gradient keeps pointing on the same direction its value contributes to amplify the step on the next iteration, "if the moment algorithm always observe gradient **g**, then it will accelerate in the direction **-g**".
 
 ## Comparison with the simple SGD for the Quadratic Regression
+
+[https://github.com/DavideDaz/TokyoDataScience/blob/master/Assignments/Gradient%20Descent%20Assignment/Basis%20Neural%20Network%20-%20Quadratic%20-%20SGD%20with%20momentum.ipynb](here)
