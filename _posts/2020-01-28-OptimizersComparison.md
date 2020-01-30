@@ -42,4 +42,4 @@ We can think of the gradient as a sort of vector, with its magnitude and a direc
 The result it is a faster descent towards the local minima with a dumped oscillation of the weights as in Figure 2.
 
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/Momentum.png" alt="SGD with momentum" class="align-center">
-                      <figcaption>Figure 2: SGD with momentum</figcaption>
+                  <figcaption>Figure 2: SGD with momentum</figcaption>
