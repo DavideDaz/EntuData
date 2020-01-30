@@ -36,7 +36,7 @@ It is clear that to reach faster the local minima, the update on the horizontal 
 
 We can think of the gradient as a sort of velocity, with its magnitude and a direction, somehow pointing with a certain intensity to the local minima. It can be therefore advantageous to take advantage of the momentum given by the previous iteration to speed up the learning process. At the same time we don't want to accelerate indefinitely and amplify too much the time step as we can overshoot our minima target. Hence, without going too much in deep with the physical parallel of momentum (whose clear explanation you can find [here](http://www.deeplearningbook.org/contents/optimization.html) for the SGD with momentum implementation we mainly need two ingredients:
 
-- A variable $v$ that plays the role of velocity
+- A variable $$v$$ that plays the role of velocity
 - A friction coefficient that introduces a gradual (exponential) decay of the velocity term in order to dump the oscillations in the weights updates, reaching a terminal velocity close to the minima.
 
 The result it is a faster descent towards the local minima with a dumped oscillation of the weights as in Figure 2.
