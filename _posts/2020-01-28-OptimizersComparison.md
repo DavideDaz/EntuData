@@ -21,14 +21,14 @@ In this series of posts I will start from a simple quadratic regression to compa
 * SGD with Nesterov momentum
 * AdaGrad and its evolution in RSMprop
 * Adam   
-
+<p style="text-align justify;>
 Please note that some of these techniques, in particular the last three, are particularly conceived for applications to deep learning in cases with complex landscape loss functions (Like the one at the head of this post taken from [losslandscape](https://losslandscape.com/), which I strongly suggest to take a look at). Their use on a the quadratic function may therefore lead to the expected result but still gives the clear idea of the rationale behind them.
-
+</p>
 
 ## SGD with Momentum Rationale
-
+<p style="text-align justify;>
 The learning rate is a crucial parameter that determines the dimension of step to upload the weights after each iteration during the gradient descent. The simple SGD employs a constant learning rate. This means that all the parameters are updated with the same step independently from the "shape" of the loss function. This can result in a slow journey to the local minima as shown in the case of a quadratic loss function with a poorly conditioned Hessian matrix of Figure 1, considering a simple case of two weights. Note that the loss is represented with contour lines as a function of the two parameters.
-
+</p>
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/MomentumandSGD.png" alt="SGD and SGD with momentum">
 <figcaption>Figure 1: SGD and SGD with momentum</figcaption>
 
@@ -42,4 +42,4 @@ We can think of the gradient as a sort of vector, with its magnitude and a direc
 The result it is a faster descent towards the local minima with a dumped oscillation of the weights as in Figure 2.
 
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/Momentum.png" alt="SGD with momentum" class="align-center">
-                  <figcaption>Figure 2: SGD with momentum</figcaption>
+<figcaption>Figure 2: SGD with momentum</figcaption>
