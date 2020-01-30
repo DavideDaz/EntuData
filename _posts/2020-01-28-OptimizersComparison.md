@@ -5,6 +5,7 @@ tags: [machine learning, data science, optimizers, machine learning theory]
 header:
   image: "/OptimizerComparison/loss-landscapeR.jpg"
 excerpt: "Machine Learning Projects, Optimizer Comparison, Data Science"
+mathjax: "true"
 toc: true
 toc_label: "Contents"
 toc_icon: "cog"
