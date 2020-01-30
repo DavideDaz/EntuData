@@ -47,10 +47,10 @@ The result it is a faster descent towards the local minima with a dumped oscilla
 
 Its implementation is pretty straightforward. Please note that given the few data and the simple case we are studying, a unique batch including all the samples has been considered.
 
-* Compute the gradient estimate: $$ \textbf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(\textit{f}(\textbf{x}ˆ(i);\mathbf{\theta}),\textbf{y}ˆ(i))$$
+* Compute the gradient estimate: $$ \textbf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(\textit{f} (\textbf{x}ˆ{(i)};\mathbf{\theta}),\textbf{y}ˆ{(i)})$$
 * Compute the velocity update:
-$$ \textbf{v} \leftarrow \alfa\textbf{v}-\epsilon\textbf{g}$$
+$$ \textbf{v} \leftarrow \alpha\textbf{v}-\epsilon\textbf{g}$$
 * Apply update:
-$$ \mathbf{\theta} \leftarrow \textbf{\theta}\alfa\textbf{v}$$
+$$ \mathbf{\theta} \leftarrow \mathbf{\theta}\alpha\textbf{v}$$
 
 As specified in the Machine Learning text, "the step size depends on how large and how aligned a sequence of gradients are". If the gradient keeps pointing on the same direction its value contributes to amplify the step on the next iteration, "if the moment algorithm always observe gradient **g**, then it will accelerate in the direction **-g**".
