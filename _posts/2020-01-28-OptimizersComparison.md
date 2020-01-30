@@ -58,4 +58,4 @@ As specified in the Machine Learning text, "the step size depends on how large a
 
 ## Comparison with the simple SGD for the Quadratic Regression
 
-[https://github.com/DavideDaz/TokyoDataScience/blob/master/Assignments/Gradient%20Descent%20Assignment/Basis%20Neural%20Network%20-%20Quadratic%20-%20SGD%20with%20momentum.ipynb](here)
+[here](https://github.com/DavideDaz/TokyoDataScience/blob/master/Assignments/Gradient%20Descent%20Assignment/Basis%20Neural%20Network%20-%20Quadratic%20-%20SGD%20with%20momentum.ipynb)
