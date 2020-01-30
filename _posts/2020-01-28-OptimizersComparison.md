@@ -48,7 +48,7 @@ The result it is a faster descent towards the local minima with a dumped oscilla
 Its implementation is pretty straightforward. Please note that given the few data and the simple case we are studying, a unique batch including all the samples has been considered.
 
 * Compute the gradient estimate:
-$$ \textbf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(\textit{f} (\mathbf{xˆ{(i)}};\mathbf{\theta}),\mathbf{yˆ{(i)}})$$
+$$ \textbf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(\textit{f} (\mathbf{x}^{(i)};\mathbf{\theta}),\mathbf{y}^{(i)})$$
 * Compute the velocity update:
 $$ \textbf{v} \leftarrow \alpha\textbf{v}-\epsilon\textbf{g}$$
 * Apply update:
