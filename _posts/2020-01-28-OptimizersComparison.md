@@ -9,6 +9,17 @@ toc: true
 toc_label: "Contents"
 toc_icon: "cog"
 ---
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    packages: ['base', 'newcommand', 'configMacros']
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
 
 During my study at Tokyo Data Science I am constantly exploring new topics of Machine Learning and covering the theoretical bases of the technique employed to develop the models. If from one hand it comes easy to get the general idea of a particular method, on the other the understanding of the implementation on the code and its real effect on the model bear a certain level of abstraction.This is especially true if dealing with deep neural network, in which the choice of a particular parameter or setup is integrated in a elaborated architecture and the real perception of its effect is often clouded by the complexity of the net.
 
@@ -24,7 +35,7 @@ In this series of posts I will start from a simple quadratic regression to compa
 Please note that some of these techniques, in particular the last three, are particularly conceived for applications to deep learning in cases with complex landscape loss functions (Like the one at the head of this post taken from [losslandscape](https://losslandscape.com/), which I strongly suggest to take a look at). Their use on a the quadratic function may therefore lead to the expected result but still gives the clear idea of the rationale behind them.
 
 
-## SGD with Momentum
+## SGD with Momentum Rationale
 
 The learning rate is a crucial parameter that determines the dimension of step to upload the weights after each iteration during the gradient descent. The simple SGD employs a constant learning rate. This means that all the parameters are updated with the same step independently from the "shape" of the loss function. In this situation, this can result in a slow journey to the local minima as shown in the case of a quadratic loss function with a poorly conditioned Hessian matrix of Figure 1, considering a simple case of two weights. Note that the loss is represented with contour lines as a function of the two parameters.
 
