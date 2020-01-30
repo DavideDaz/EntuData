@@ -10,7 +10,7 @@ toc: true
 toc_label: "Contents"
 toc_icon: "cog"
 ---
-<p style="text-align: justify;">
+
 During my study at Tokyo Data Science I am constantly exploring new topics of Machine Learning and covering the theoretical bases of the technique employed to develop the models. If from one hand it comes easy to get the general idea of a particular method, on the other the understanding of the implementation on the code and its real effect on the model bear a certain level of abstraction.This is especially true if dealing with deep neural network, in which the choice of a particular parameter or setup is integrated in a elaborated architecture and the real perception of its effect is often clouded by the complexity of the net.
 
 I therefore decided to break down the problem starting from a very simple case and apply the techniques of a particular subject to clearly unveil the effect of each method.
@@ -42,7 +42,4 @@ We can think of the gradient as a sort of vector, with its magnitude and a direc
 The result it is a faster descent towards the local minima with a dumped oscillation of the weights as in Figure 2.
 
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/Momentum.png" alt="SGD with momentum" class="align-center">
-<figcaption>Figure 2: SGD with momentum</figcaption>
-
-
-</p>
+<figcaption>Figure 2: SGD with momentum</figcaption class='align-center'>
