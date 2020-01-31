@@ -11,29 +11,29 @@ toc_label: "Contents"
 toc_icon: "cog"
 ---
 
-During my study at Tokyo Data Science I am constantly exploring new topics of Machine Learning and covering the theoretical bases of the technique employed to develop the models. If from one hand it comes easy to get the general idea of a particular method, on the other the understanding of the implementation on the code and its real effect on the model bear a certain level of abstraction.This is especially true if dealing with deep neural network, in which the choice of a particular parameter or setup is integrated in a elaborated architecture and the real perception of its effect is often clouded by the complexity of the net.
+During my study at Tokyo Data Science I am constantly exploring new topics of Machine Learning. We start the foundation of each subject by firstly covering the theoretical bases of the technique employed to develop the different architectures. Even though getting the general idea of a particular method may come easy, the understanding of the implementation on the code and its real effect on the model often bear a certain level of abstraction.This is especially true if dealing with deep neural network in which the choice of a particular parameter or setup is integrated in a elaborated architecture and the real perception of its effect is often clouded by the complexity of the net.
 
-I therefore decided to break down the problem starting from a very simple case and apply the techniques of a particular subject to clearly unveil the effect of each method.
+I therefore decided to break down each topic by supporting the theory with a very simple exercise or application (that often correspond to the school assignment) in order to effectively represent the idea of each technique.
 
-In this series of posts I will start from a simple quadratic regression to compare the most common Optimizers currently employed to train ML models:
+In this series of posts I will employ the gradient descent on a simple quadratic regression to compare the most common Optimizers currently employed to train ML models:
 
 * SGD with Momentum
 * SGD with Nesterov momentum
 * AdaGrad and its evolution in RSMprop
 * Adam   
 
-Please note that some of these techniques, in particular the last three, are particularly conceived for applications to deep learning in cases with complex landscape loss functions (Like the one at the head of this post taken from [losslandscape](https://losslandscape.com/), which I strongly suggest to take a look at). Their use on a the quadratic function may therefore lead to the expected result but still gives the clear idea of the rationale behind them.
+Please note that some of these techniques, in particular the last two, are particularly conceived for applications to deep learning in cases with complex landscape loss functions (Like the one at the head of this post taken from [losslandscape](https://losslandscape.com/), which I strongly suggest to take a look at. Therefore, their use on a the quadratic function may not lead to the expected result but still can clarify their rationale.
 
 
 ## SGD with Momentum Rationale
 
-The learning rate is a crucial parameter that determines the dimension of step to upload the weights after each iteration during the gradient descent. The simple SGD employs a constant learning rate. This means that all the parameters are updated with the same step independently from the "shape" of the loss function. This can result in a slow journey to the local minima as shown in the case of a quadratic loss function with a poorly conditioned Hessian matrix of Figure 1, considering a simple case of two weights. Note that the loss is represented with contour lines as a function of the two parameters.
+The learning rate is a crucial parameter that determines the dimension of step to upload the weights after each iteration during the gradient descent. The simple SGD employs a constant learning rate. This means that all the parameters are updated with the same step independently from the "shape" of the loss function. This can result in a slow journey to the local minima as shown in the case of Figure 1, considering a simple case of two weights. Note that the loss is represented with contour lines as a function of the two parameters.
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/MomentumandSGD.png" alt="SGD and SGD with momentum">
 <figcaption>Figure 1: SGD and SGD with momentum</figcaption>
 
 It is clear that to quickly reach the local minima, the update on the horizontal direction has to move with a "faster peace". Now, given that the actual step is evaluated by multiplying the calculated gradient to the learning rate, it is reasonable to think that if the value of the gradient had a relevant increase on a particular direction, this trend will continue for the next step (unless sudden changes in the loss function).
 
-We can think of the gradient as a sort of vector, with its magnitude and a direction, somehow pointing with a certain intensity to the local minima. It can be therefore advantageous to take advantage of the momentum given by the previous iteration to speed up the learning process. At the same time we don't want to accelerate indefinitely and amplify too much the time step as we can overshoot our minima target. Hence, without going too much in deep with the physical parallel of momentum (whose clear explanation you can find [here](http://www.deeplearningbook.org/contents/optimization.html) for the SGD with momentum implementation we mainly need two ingredients:
+We can think of the gradient as a sort of vector, with its magnitude and a direction, somehow pointing with a certain intensity to the local minima. It can be therefore advantageous to take advantage of the momentum given by the previous iteration to speed up the learning process. At the same time we don't want to accelerate indefinitely and amplify too much the time step as we can overshoot our minima target. Hence, without going too much in deep with the physical parallel of momentum (whose clear explanation is in the [deep learning book](http://www.deeplearningbook.org/contents/optimization.html)), for the SGD with momentum implementation we mainly need two ingredients:
 
 - A variable $$v$$ that plays the role of velocity
 - A friction coefficient that introduces a gradual (exponential) decay of the velocity term in order to dump the oscillations in the weights updates, reaching a terminal velocity close to the minima.
