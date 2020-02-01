@@ -50,10 +50,8 @@ Its implementation is pretty straightforward. Please note that given the few dat
 * Compute the gradient estimate:
 $$ \textbf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(\textit{f} (\mathbf{x}^{(i)};\mathbf{\theta}),\mathbf{y}^{(i)})$$
 * Compute the velocity update:
-
 $$ \textbf{v} \leftarrow \alpha\textbf{v}-\epsilon\textbf{g}$$
 * Apply update:
-
 $$ \mathbf{\theta} \leftarrow \mathbf{\theta}+\textbf{v}$$
 
 As specified in the Machine Learning text, "the step size depends on how large and how aligned a sequence of gradients are". If the gradient keeps pointing on the same direction its value contributes to amplify the step on the next iteration, "if the moment algorithm always observe gradient **g**, then it will accelerate in the direction **-g**".
@@ -70,4 +68,25 @@ The three methods reach a reasonable approximation of the quadratic function (Fi
 <figure class="half full">
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss_mom.png" alt="SGD with momentum loss">
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss_mom_mag.png" alt="SGD with momentum loss mag">
-<figcaption>Figure 3: Loss function over the epochs</figcaption>
+<figcaption>Figure 4: Loss function over the epochs</figcaption>
+
+From Figure 5 we can also observe the effect of the friction factor that in case of 0.9 introduces a 10% decay for each v term, until reaching a steady velocity given by
+
+$$\frac(\epsilon g, (1-\alpha))
+
+<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/velocities.png" alt="Velocity terms decay">
+<figcaption>Figure 5: Velocity terms decay, $$\alpha=0.9$$</figcaption>
+
+## Case with a friction factor of 0.99
+
+In case we set a higher friction factor we are actually "decreasing the friction" as we are storing a bigger portion of the previous gradient to evaluate the new step and the decay is reduced down to 1% over the iterations (Figure 6).
+
+<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/velocities099.png" alt="Velocity terms decay099">
+<figcaption>Figure 6: Velocity terms decay, $$\alpha=0.99$$</figcaption>
+
+The use of a high value of $$\alpha$$ from the beginning of the cycle can introduce a high oscillation of the loss function. In the initial step the gradient is still far to be aligned towards the local minima, and this error is not dumped enough by the friction factor. As a result the effect of the excessive amplification is propagated over all the next iterations (Figure 7), resulting some times in a higher loss at the end of the 1000 iterations.
+
+<figure class="half full">
+<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss09-099.png" alt="SGD with momentum loss099">
+<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss099_mag.png" alt="SGD with momentum loss mag099mag">
+<figcaption>Figure 4: Loss function over the epochs, $$\alpha=0.9,0.99$$</figcaption>
