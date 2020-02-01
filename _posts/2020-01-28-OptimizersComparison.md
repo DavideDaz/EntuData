@@ -70,7 +70,7 @@ The three methods reach a reasonable approximation of the quadratic function (Fi
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss_mom_mag.png" alt="SGD with momentum loss mag">
 <figcaption>Figure 4: Loss function over the epochs</figcaption>
 
-From Figure 5 we can also observe the effect of the friction factor that in case of 0.9 introduces a 10% decay for each v term, until reaching a steady velocity given by $$\frac{\epsilon g}{(1-\alpha)}$$
+From Figure 5 we can also observe the effect of the friction factor that in case of 0.9 introduces a 10% decay for each v term, until reaching a steady velocity given by $$\frac{\epsilon g}{(1-\alpha)}$$.
 
 
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/velocities.png" alt="Velocity terms decay">
