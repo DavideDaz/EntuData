@@ -72,7 +72,7 @@ The three methods reach a reasonable approximation of the quadratic function (Fi
 
 From Figure 5 we can also observe the effect of the friction factor that in case of 0.9 introduces a 10% decay for each v term, until reaching a steady velocity given by $$\epsilon g/(1-\alpha)$$.
 
-
+<figure class="full">
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/velocities.png" alt="Velocity terms decay">
 <figcaption>Figure 5: Velocity terms decay, alpha=0.9</figcaption>
 
@@ -82,16 +82,18 @@ From Figure 5 we can also observe the effect of the friction factor that in case
 In case we set a higher friction factor we are actually "decreasing the friction" as we are storing a bigger portion of the previous gradient to evaluate the new step and the decay is reduced down to 1% over the iterations (Figure 6).
 
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/velocities099.png" alt="Velocity terms decay099">
-<figcaption>Figure 6: Velocity terms decay, alpha=0.99</figcaption>
+<figcaption>"Figure 6: Velocity terms decay, alpha=0.99"</figcaption>
 
 The use of a high value of alpha from the beginning of the cycle can introduce a high oscillation of the loss function. In the initial step the gradient is still far to be aligned towards the local minima, and this error is not dumped enough by the friction factor.
 
 <figure class="half full">
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss099.png" alt="SGD with momentum loss099">
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss099_mag.png" alt="SGD with momentum loss mag099mag">
-<figcaption>Figure 4: Loss function over the epochs, alpha=0.9,0.99</figcaption>
+<figcaption>"Figure 4: Loss function over the epochs, alpha=0.9,0.99"</figcaption>
 
 As a result the effect of the excessive amplification is propagated over all the next iterations (Figure 7), resulting some times in a higher loss at the end of the 1000 iterations.
 
 
 ## Tuning the friction factor during the cycle
+
+Reversely, we can leverage a higher friction factor once the  
