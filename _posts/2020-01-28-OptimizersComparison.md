@@ -1,5 +1,5 @@
 ---
-title: "Machine Learning Theory Comprehension: Optimizers Comparison"                
+title: "Machine Learning Theory Comprehension: Optimizers Comparison, SGD with Momentum"                
 date: 2020-01-28
 tags: [machine learning, data science, optimizers, machine learning theory]
 header:
@@ -27,16 +27,16 @@ Please note that some of these techniques, in particular the last two, are parti
 
 ## SGD with Momentum Rationale
 
-The learning rate is a crucial parameter that determines the dimension of step to upload the weights after each iteration during the gradient descent. The simple SGD employs a constant learning rate. This means that all the parameters are updated with the same step independently from the "shape" of the loss function. This can result in a slow journey to the local minima as shown in the case of Figure 1, considering a simple case of two weights. Note that the loss is represented with contour lines as a function of the two parameters.
+The learning rate is a crucial parameter that determines the dimension of step to upload the weights after each iteration during the gradient descent. The simple SGD employs a constant learning rate. This means that all the parameters are updated with the same learning rate independently from the "shape" of the loss function. This can result in a slow journey to the local minima as shown in the case of Figure 1, considering a simple case of two weights. Note that the loss is represented with contour lines as a function of the two parameters.
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/MomentumandSGD.png" alt="SGD and SGD with momentum">
 <figcaption>Figure 1: SGD and SGD with momentum</figcaption>
 
-It is clear that to quickly reach the local minima, the update on the horizontal direction has to move with a "faster peace". Now, given that the actual step is evaluated by multiplying the calculated gradient to the learning rate, it is reasonable to think that if the value of the gradient had a relevant increase on a particular direction, this trend will continue for the next step (unless sudden changes in the loss function).
+It is clear that to quickly reach the local minima, the update on the horizontal direction has to move with a "faster peace". Now, given that the actual step is evaluated by multiplying the calculated gradient to the learning rate, it is reasonable to think that if the value of the gradient had a relevant increase on a particular direction, this trend will continue for the next iteration (unless sudden changes in the loss function).
 
-We can think of the gradient as a sort of vector, with its magnitude and a direction, somehow pointing with a certain intensity to the local minima. It can be therefore advantageous to take advantage of the momentum given by the previous iteration to speed up the learning process. At the same time we don't want to accelerate indefinitely and amplify too much the time step as we can overshoot our minima target. Hence, without going too much in deep with the physical parallel of momentum (whose clear explanation is in the [deep learning book](http://www.deeplearningbook.org/contents/optimization.html)), for the SGD with momentum implementation we mainly need two ingredients:
+We can think of the gradient as a sort of vector, with its magnitude and a direction pointing with a certain intensity to the local minima. It can be therefore advantageous to take advantage of the momentum given by the previous iteration to speed up the learning process. At the same time we don't want to accelerate indefinitely and amplify too much the step size, as we can overshoot our minima target. Hence, without going too much in deep with the physical parallel of momentum (whose clear explanation is in the [deep learning book](http://www.deeplearningbook.org/contents/optimization.html)), for the SGD with momentum implementation we mainly need two ingredients:
 
 - A variable $$v$$ that plays the role of velocity
-- A friction coefficient that introduces a gradual (exponential) decay of the velocity term in order to dump the oscillations in the weights updates, reaching a terminal velocity close to the minima.
+- A friction factor that introduces a gradual (exponential) decay of the velocity term in order to dump the oscillations in the weights updates.
 
 The result it is a faster descent towards the local minima with a dumped oscillation of the weights as in Figure 2.
 
@@ -50,12 +50,24 @@ Its implementation is pretty straightforward. Please note that given the few dat
 * Compute the gradient estimate:
 $$ \textbf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(\textit{f} (\mathbf{x}^{(i)};\mathbf{\theta}),\mathbf{y}^{(i)})$$
 * Compute the velocity update:
+
 $$ \textbf{v} \leftarrow \alpha\textbf{v}-\epsilon\textbf{g}$$
 * Apply update:
+
 $$ \mathbf{\theta} \leftarrow \mathbf{\theta}+\textbf{v}$$
 
 As specified in the Machine Learning text, "the step size depends on how large and how aligned a sequence of gradients are". If the gradient keeps pointing on the same direction its value contributes to amplify the step on the next iteration, "if the moment algorithm always observe gradient **g**, then it will accelerate in the direction **-g**".
 
 ## Comparison with the simple SGD for the Quadratic Regression
 
-[here](https://github.com/DavideDaz/TokyoDataScience/blob/master/Assignments/Gradient%20Descent%20Assignment/Basis%20Neural%20Network%20-%20Quadratic%20-%20SGD%20with%20momentum.ipynb)
+We can now finally get into the exercise on the quadratic regression. In the notebook linked [here](https://github.com/DavideDaz/TokyoDataScience/blob/master/Assignments/Gradient%20Descent%20Assignment/Basis%20Neural%20Network%20-%20Quadratic%20-%20SGD%20with%20momentum.ipynb) I compared the performance of the simple SGD (using a unique batch of inputs) with the SGD with the momentum applied. You can also open the notebook on Google Colab by right-clicking on the Colab button on top and opening it in a new tab. Two values of friction factor have been also employed to compare the performance.The two implementation have been initialized with the same weight values and run for the same number of epochs for a clear comparison.
+
+<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/momentum_reg.png" alt="Regression" class="align-center">
+<figcaption>Figure 3: Regression curves for the three implementations</figcaption>
+
+The three methods reach a reasonable approximation of the quadratic function (Figure 3) but the trend of the loss function and its final value after the 1000 epochs unveil the change introduced by each method. Indeed, after an initial oscillation the loss for the SGD with momentum case is quickly pushed down, reaching the minima after only 100 iterations. The descent for the simple SGD is instead more gradual and ended at stays at a higher value after the end on the epochs Figure 4).
+
+<figure class="half full">
+<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss_mom.png" alt="SGD with momentum loss">
+<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss_mom_mag.png" alt="SGD with momentum loss mag">
+<figcaption>Figure 3: Loss function over the epochs</figcaption>
