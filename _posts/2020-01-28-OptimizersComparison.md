@@ -69,10 +69,10 @@ The three methods reach a reasonable approximation of the quadratic function (Fi
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss_mom.png" alt="SGD with momentum loss">
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss_mom_mag.png" alt="SGD with momentum loss mag">
 <figcaption>Figure 4: Loss function over the epochs</figcaption>
+</figure>
 
 From Figure 5 we can also observe the effect of the friction factor that in case of 0.9 introduces a 10% decay for each v term, until reaching a steady velocity given by $$\epsilon g/(1-\alpha)$$.
 
-<figure class="full">
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/velocities.png" alt="Velocity terms decay">
 <figcaption>Figure 5: Velocity terms decay, alpha=0.9</figcaption>
 
@@ -89,8 +89,8 @@ The use of a high value of alpha from the beginning of the cycle can introduce a
 <figure class="half full">
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss099.png" alt="SGD with momentum loss099">
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss099_mag.png" alt="SGD with momentum loss mag099mag">
-<figcaption>"Figure 4: Loss function over the epochs, alpha=0.9,0.99"</figcaption>
-
+<figcaption>"Figure 4: Loss function over the epochs, alpha=0.9,0.99</figcaption>
+</figure>
 As a result the effect of the excessive amplification is propagated over all the next iterations (Figure 7), resulting some times in a higher loss at the end of the 1000 iterations.
 
 
