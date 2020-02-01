@@ -71,8 +71,7 @@ The three methods reach a reasonable approximation of the quadratic function (Fi
 <figcaption>Figure 4: Loss function over the epochs</figcaption>
 
 From Figure 5 we can also observe the effect of the friction factor that in case of 0.9 introduces a 10% decay for each v term, until reaching a steady velocity given by
-
-$$\frac(\epsilon g, (1-\alpha))$$
+$$\frac{\epsilon g}{(1-\alpha)}$$
 
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/velocities.png" alt="Velocity terms decay">
 <figcaption>Figure 5: Velocity terms decay, alpha=0.9</figcaption>
