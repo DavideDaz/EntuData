@@ -28,7 +28,7 @@ We can see from Figure 1 the difference of the two approaches:
 * The Nesterov momentum initially updates the weights based on the previous velocity (brown vector) and based on the gradient estimation it applies a correction (red vector). The overall update is given by the green vector.
 
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/nesterovarrow.png" alt="Nesterov Arrows">
-<figcaption>Figure 1: SGD with Momentum (Blue) and SGD with Nesterov Momentum (red and green) weights update</figcaption>
+<figcaption>Figure 1: SGD with Momentum and SGD with Nesterov Momentum weights update (Source: G. Hinton's lecture 6c)</figcaption>
 
 
 ## SGD with Nesterov Momentum implementation
