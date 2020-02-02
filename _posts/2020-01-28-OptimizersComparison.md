@@ -36,7 +36,7 @@ It is clear that to quickly reach the local minima, the update on the horizontal
 We can think of the gradient as a sort of vector, with its magnitude and a direction pointing with a certain intensity to the local minima. It can be therefore advantageous to take advantage of the momentum given by the previous iteration to speed up the learning process. At the same time we don't want to accelerate indefinitely and amplify too much the step size, as we can overshoot our minima target. Hence, without going too much in deep with the physical parallel of momentum (whose clear explanation is in the [deep learning book](http://www.deeplearningbook.org/contents/optimization.html)), for the SGD with momentum implementation we mainly need two ingredients:
 
 - A variable $$v$$ that plays the role of velocity
-- A friction factor that introduces a gradual (exponential) decay of the velocity term in order to dump the oscillations in the weights updates.
+- A friction factor that introduces a gradual (exponential) decay of the velocity term in order to damp the oscillations in the weights updates.
 
 The result it is a faster descent towards the local minima with a dumped oscillation of the weights as in Figure 2.
 
@@ -58,7 +58,7 @@ As specified in the Machine Learning text, "the step size depends on how large a
 
 ## Comparison with the simple SGD for the Quadratic Regression
 
-We can now finally get into the exercise on the quadratic regression. In the notebook linked [here](https://github.com/DavideDaz/TokyoDataScience/blob/master/Assignments/Gradient%20Descent%20Assignment/Basis%20Neural%20Network%20-%20Quadratic%20-%20SGD%20with%20momentum.ipynb) I compared the performance of the simple SGD (using a unique batch of inputs) with the SGD with the momentum applied. You can also open the notebook on Google Colab by right-clicking on the Colab button on top and opening it in a new tab. Two values of friction factor have been also employed to compare the performance.The two implementation have been initialized with the same weight values and run for the same number of epochs for a clear comparison.
+We can now finally get into the exercise on the quadratic regression. In the **notebook** linked [here](https://github.com/DavideDaz/TokyoDataScience/blob/master/Assignments/Gradient%20Descent%20Assignment/Basis%20Neural%20Network%20-%20Quadratic%20-%20SGD%20with%20momentum.ipynb) I compared the performance of the simple SGD (using a unique batch of inputs) with the SGD with the momentum applied. You can also open the notebook on Google Colab by right-clicking on the Colab button on top and opening it in a new tab. Two values of friction factor have been also employed to compare the performance.The two implementation have been initialized with the same weight values and run for the same number of epochs for a clear comparison.
 
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/momentum_reg.png" alt="Regression" class="align-center">
 <figcaption>Figure 3: Regression curves for the three implementations</figcaption>
@@ -84,7 +84,7 @@ In case we set a higher friction factor we are actually "decreasing the friction
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/velocities099.png" alt="Velocity terms decay099">
 <figcaption>Figure 6: Velocity terms decay, alpha=0.99</figcaption>
 
-The use of a high value of alpha from the beginning of the cycle can introduce a high oscillation of the loss function. In the initial step the gradient is still far to be aligned towards the local minima, and this error is not dumped enough by the friction factor.
+The use of a high value of alpha from the beginning of the cycle can introduce a high oscillation of the loss function. In the initial step the gradient is still far to be aligned towards the local minima, and this error is not damped enough by the friction factor.
 
 <figure class="half full">
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss099.png" alt="SGD with momentum loss099">

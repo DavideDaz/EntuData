@@ -47,7 +47,7 @@ $$ \mathbf{\theta} \leftarrow \mathbf{\theta}+\textbf{v}$$
 
 ## Comparison with the simple SGD for the Quadratic Regression
 
-You can find the notebook [here](https://github.com/DavideDaz/TokyoDataScience/blob/master/Assignments/Gradient%20Descent%20Assignment/Basis%20Neural%20Network%20-%20Quadratic%20-%20SGD%20with%20Nesterov%20momentum.ipynb). Right click on the Colab button and open in a new tab.
+You can find the **notebook** [here](https://github.com/DavideDaz/TokyoDataScience/blob/master/Assignments/Gradient%20Descent%20Assignment/Basis%20Neural%20Network%20-%20Quadratic%20-%20SGD%20with%20Nesterov%20momentum.ipynb). Right click on the Colab button and open in a new tab.
 
 The effect of the Nesterov momentum is to quickly push down the loss function after 200 iteration avoiding the initial oscillations.
 
