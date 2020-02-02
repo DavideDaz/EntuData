@@ -27,7 +27,7 @@ We can see from Figure 1 the difference of the two approaches:
 
 * The Nesterov momentum initially updates the weights based on the previous velocity (brown vector) and based on the gradient estimation it applies a correction (red vector). The overall update is given by the green vector.
 
-<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/nesterovarrow.png" alt="Nesterov Arrows">
+<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/nesterovoarrow.png" alt="Nesterov Arrows">
 <figcaption>Figure 1: SGD with Momentum and SGD with Nesterov Momentum weights update (Source: G. Hinton's lecture 6c)</figcaption>
 
 
@@ -36,9 +36,9 @@ We can see from Figure 1 the difference of the two approaches:
 Its implementation differs from the other just for the instant at which the gradient is calculated:
 
 * Update the weights with previously calculated velocity:
-$$ \mathbf{\thetatilde} \leftarrow \mathbf{\theta}+\textbf{v}$$
+$$ \mathbf{\˜{\theta}} \leftarrow \mathbf{\theta}+\textbf{v}$$
 * Calculate the gradient based on the new weights
-$$ \textbf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(\textit{f} (\mathbf{x}^{(i)};\mathbf{\thetatilde}),\mathbf{y}^{(i)})$$
+$$ \textbf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(\textit{f} (\mathbf{x}^{(i)};\mathbf{\˜{\theta}}),\mathbf{y}^{(i)})$$
 * Compute the velocity update:
 $$ \textbf{v} \leftarrow \alpha\textbf{v}-\epsilon\textbf{g}$$
 * Apply update:
