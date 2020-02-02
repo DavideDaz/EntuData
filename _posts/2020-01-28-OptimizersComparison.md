@@ -96,4 +96,18 @@ As a result the effect of the excessive amplification is propagated over all the
 
 ## Tuning the friction factor during the cycle
 
-Reversely, we can leverage a higher friction factor after that the consecutive gradients are sufficiently aligned in order to further speed up the learning process.
+Reversely, we can leverage a higher friction factor after that the consecutive gradients are sufficiently aligned in order to further speed up the learning process. In the example below I run again the SGD with momentum using a friction factor of 0.9 for the first 200 iterations and switch to 0.99 for the remaining 800 with a very simple modification in the code:
+
+'''python
+
+for i in range(1000):
+    if i<=200:
+        alpha_friction99 = 0.9
+    else:
+        alpha_friction99 = 0.99
+'''
+
+In Figure 8 is shown the comparison between the case with $$\alpha=0.9$$ and the one with $$\alpha$$ switching from 0.9 to 0.99. We can clearly see how the loss decrease faster after 200 epochs.
+
+<img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/loss09-099.png" alt="Friction factor tuning ">
+<figcaption>Figure 8: Effect of the friction factor tuning</figcaption>
