@@ -100,11 +100,11 @@ Reversely, we can leverage a higher friction factor after that the consecutive g
 
 '''python
 
-for i in range(1000):
-    if i<=200:
-        alpha_friction99 = 0.9
-    else:
-        alpha_friction99 = 0.99
+    for i in range(1000):
+        if i<=200:
+            alpha_friction99 = 0.9
+        else:
+            alpha_friction99 = 0.99
 '''
 
 In Figure 8 is shown the comparison between the case with $$\alpha=0.9$$ and the one with $$\alpha$$ switching from 0.9 to 0.99. We can clearly see how the loss decrease faster after 200 epochs.
