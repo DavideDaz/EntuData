@@ -98,8 +98,6 @@ As a result the effect of the excessive amplification is propagated over all the
 
 Reversely, we can leverage a higher friction factor after that the consecutive gradients are sufficiently aligned in order to further speed up the learning process. In the example below I run again the SGD with momentum using a friction factor of 0.9 for the first 200 iterations and switch to 0.99 for the remaining 800 with a very simple modification in the code:
 
-'''
-
     for i in range(1000):
         if i<=200:
             alpha_friction99 = 0.9
