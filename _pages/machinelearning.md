@@ -1,7 +1,7 @@
 ---
 layout: archive
 permalink: /machine-learning/
-title: "Machine Learning posts by tag"
+title: "Machine Learning Projects:"
 author_profile: true
 header:
   image: "/pictures/rainbridgeResize.jpg"
@@ -13,9 +13,7 @@ toc_icon: "cog"
 
 ## GTSRB - German Traffic Sign Recognition Benchmark - Multi-class, single-image classification challenge from Kaggle dataset
 
-<figure class="full">
 <img src="{{ site.url }}{{ site.baseurl }}/GTSRB/Header.png" alt="Traffic signs">
-</figure>
 
 The German Traffic Sign Benchmark is a multi-class, single image classification challenge held at the International Joint Conference of Neural Networks (IJCNN) in 2011. The Dataset is composed by:
 
