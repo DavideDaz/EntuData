@@ -1,7 +1,7 @@
 ---
 layout: single
-permalink: /machine-learning/
-title: "Data Science and ML Comprehension:"
+permalink: /comprehension/
+title: "Data Science Theory Comprehension"
 author_profile: true
 header:
   image: "/pictures/TokyoekiRes.jpg"
