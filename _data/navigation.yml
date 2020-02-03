@@ -4,8 +4,8 @@ main:
     url: /about/
   - title: "Machine Learning Projects"
     url: /machine-learning/
-   - title: "Data Science Theory Comprehension"
-     url: /comprehension/
+  - title: "Data Science Theory Comprehension"
+    url: /comprehension/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
