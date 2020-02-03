@@ -6,8 +6,8 @@ main:
     url: /machine-learning/
   - title: "Understanding Data Science"
     url: /comprehension/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
+  - title: "HackerRank Practice"
+    url: /HackerRankPractice/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
