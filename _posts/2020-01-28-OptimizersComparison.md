@@ -4,7 +4,7 @@ date: 2020-01-28
 tags: [Machine Learning Theory Comprehension]
 header:
   image: "/OptimizerComparison/loss-landscapeR.jpg"
-excerpt: "Machine Learning Projects, Optimizer Comparison, Data Science"
+excerpt: "Machine Learning, Optimizer Comparison"
 mathjax: "true"
 toc: true
 toc_label: "Contents"
