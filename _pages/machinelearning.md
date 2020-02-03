@@ -5,6 +5,10 @@ title: "Machine Learning posts by tag"
 author_profile: true
 header:
   image: "/pictures/rainbridgeResize.jpg"
+mathjax: "true"
+toc: true
+toc_label: "Contents"
+toc_icon: "cog"
 ---
 
 ## GTSRB - German Traffic Sign Recognition Benchmark - Multi-class, single-image classification challenge from Kaggle dataset
