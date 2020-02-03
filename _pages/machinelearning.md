@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: single
 permalink: /machine-learning/
 title: "Machine Learning Projects:"
 author_profile: true
@@ -9,6 +9,7 @@ mathjax: "true"
 toc: true
 toc_label: "Contents"
 toc_icon: "cog"
+toc_sticky: true
 ---
 
 ## GTSRB - German Traffic Sign Recognition Benchmark - Multi-class, single-image classification challenge from Kaggle dataset
