@@ -1,7 +1,7 @@
 ---
 title: "Machine Learning Theory Comprehension: Optimizers Comparison on a Quadratic Regression, AdaGrad and RMSProp"                
 date: 2020-01-28
-tags: [machine learning, data science, optimizers, machine learning theory]
+tags: [Machine Learning Theory Comprehension]
 header:
   image: "/OptimizerComparison/loss-landscape-AdaGRes.jpg"
 excerpt: "Machine Learning Projects, Optimizer Comparison, Data Science"
