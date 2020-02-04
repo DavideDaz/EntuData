@@ -24,24 +24,24 @@ As the terms are initialized with zero, their moments are biased towards zero, e
 
 ## Adam implementation
 
-Initialize global learning rate $$\epsilon$$, the array of the weights $$\theta$$,the gradient estimates accumulation variables for the mean $$s$$ and variance $$r$$ and their decay rates $$\rho1$$ and $$\rho2$$.
+Initialize global learning rate $$\epsilon$$, the array of the weights $$\theta$$,the gradient estimates accumulation variables for the mean $$s$$ and variance $$r$$ and their decay rates $$\rho_1$$ and $$\rho_2$$.
 Define a small value $$\delta$$ to avoid division by zero in the algorithm.
 * Calculate the gradient
 $$ \textbf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(\textit{f} (\mathbf{x}^{(i)};\mathbf{\theta}),\mathbf{y}^{(i)})$$
-* t \leftarrow t+1
+* $$t \leftarrow t+1$$
 * Update biased first moment estimate:
-$$ \textbf{s} \leftarrow \rho1\textbf{s}+(1-\rho1)\textbf{g}$$
+$$ \textbf{s} \leftarrow \rho1\textbf{s}+(1-\rho_1)\textbf{g}$$
 * Update biased second moment estimate:
-$$ \textbf{r} \leftarrow \rho2\textbf{r}+(1-\rho2)\textbf{g}\odot\textbf{g}$$
+$$ \textbf{r} \leftarrow \rho2\textbf{r}+(1-\rho_2)\textbf{g}\odot\textbf{g}$$
 * Correct bias in first moment:
-$$\widehat{\textbf{s}} \leftarrow \frac{\textbf{s}}{1-{\rho1}^t}$$
+$$\widehat{\textbf{s}} \leftarrow \frac{\textbf{s}}{1-{\rho_1}^t}$$
 * Correct bias in second moment:
-$$\widehat{\textbf{r}} \leftarrow \frac{\textbf{r}}{1-{\rho2}^t}$$
+$$\widehat{\textbf{r}} \leftarrow \frac{\textbf{r}}{1-{\rho_2}^t}$$
 * Compute update:
-$$ \mathbf{\Delta}\mathbf{\theta} \leftarrow -\epsilon\frac{\widehat{\textbf{s}}}{\delta+\sqrt{\widehat{\textbf{r}}}}$$
+$$ \mathbf{\Delta}\textbf{\theta} \leftarrow -\epsilon\frac{\widehat{\textbf{s}}}{\delta+\sqrt{\widehat{\textbf{r}}}}$$
 (Note that the multiplication is done element wise between the vector in which appear $$r$$ and the vector of the partisl derivatives for each element $$g$$)
 * Apply update:
-$$ \mathbf{\theta} \leftarrow \mathbf{\theta}+\mathbf{\Delta}\mathbf{\theta} $$
+$$ \textbf{\theta} \leftarrow \textbf{\theta}+\mathbf{\Delta}\textbf{\theta} $$
 
 
 ## AdaGrad Optimizer for a Quadratic Regression
