@@ -3,7 +3,7 @@ title: "Machine Learning Theory Comprehension: Optimizers Comparison on a Quadra
 date: 2020-01-28
 tags: [Machine Learning Theory Comprehension]
 header:
-  image: "/OptimizerComparison/losslandasscapeAdam.jpg"
+  image: "/OptimizerComparison/losslandasscapeAdamRes.jpg"
 excerpt: "Machine Learning, Optimizer Comparison"
 mathjax: "true"
 toc: true
