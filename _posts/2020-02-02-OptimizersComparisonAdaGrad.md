@@ -68,7 +68,6 @@ $$ \textbf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(\textit{f} (\mat
 $$ \textbf{r} \leftarrow \rho\textbf{r}+(1-\rho)\textbf{g}\odot\textbf{g}$$
 * Compute update:
 $$ \mathbf{\Delta}\mathbf{\theta} \leftarrow -\frac{\epsilon}{\sqrt{\delta+\textbf{r}}}\odot\textbf{g}$$
-(Note that the multiplication is done element wise between the vector in which appear $$r$$ and the vector of the partisl derivatives for each element $$g$$)
 * Apply update:
 $$ \mathbf{\theta} \leftarrow \mathbf{\theta}+\mathbf{\Delta}\mathbf{\theta} $$
 
