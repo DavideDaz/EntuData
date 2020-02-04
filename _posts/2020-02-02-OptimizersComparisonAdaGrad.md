@@ -11,14 +11,12 @@ toc_label: "Contents"
 toc_icon: "cog"
 ---
 
-The optimization methods described in the previous two posts (SGD with momentum and with Nesterov momentum) employ a fixed learning rate, independently from the type of descent of the weights along the loos function.
-
+The optimization methods described in the previous two posts (SGD with momentum and with Nesterov momentum) employ a fixed learning rate for all the weights.
 AdaGrad propose instead an adaptive learning rate depending on the historical squared values of the gradient. Let's see this in details.
 
 ## AdaGrad optimizer Rationale
 
-
-The learning rate is adapted for each parameter by scaling them with the square root of a term called $$r$$. This is computed by adding the value stored from the previous iteration to the element-wise squared values of the gradient. This means that the parameters with a systematic large partial derivative experience a rapid decrease in the learning rate, while the parameters with a small partial derivative slightly decrease their learning rate over the iterations.
+The learning rate is adapted for each parameter by scaling them with the square root of a term called $$r$$, computed by adding the value stored from the previous iteration to the element-wise squared values of the gradient. This means that the parameters with a systematic large partial derivative experience a rapid decrease in the learning rate, while the parameters with a small partial derivative slightly decrease their learning rate over the iterations.
 
 
 ## AdaGrad implementation
@@ -31,7 +29,7 @@ $$ \textbf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(\textit{f} (\mat
 $$ \textbf{r} \leftarrow \textbf{r}+\textbf{g}\odot\textbf{g}$$
 * Compute update:
 $$ \mathbf{\Delta}\mathbf{\theta} \leftarrow -\frac{\epsilon}{\delta+\sqrt{\textbf{r}}}\odot\textbf{g}$$
-(Note that the multiplication is done element wise between the vector in which appear $$r$$ and the vector of the partisl derivatives for each element $$g$$)
+(Note that the multiplication is done element wise between the vector in which $$r$$ appears and the vector of the partial derivatives of each element $$g$$)
 * Apply update:
 $$ \mathbf{\theta} \leftarrow \mathbf{\theta}+\mathbf{\Delta}\mathbf{\theta} $$
 
@@ -40,7 +38,7 @@ $$ \mathbf{\theta} \leftarrow \mathbf{\theta}+\mathbf{\Delta}\mathbf{\theta} $$
 
 You can find the **notebook** [here](https://github.com/DavideDaz/TokyoDataScience/blob/master/Assignments/Gradient%20Descent%20Assignment/Basis%20Neural%20Network%20-%20Quadratic%20-%20AdaGrad.ipynb). Right click on the Colab button and open in a new tab.
 
-For the quadratic regression the element-wise product of the gradient is systematically very large. Therefore, by using a small value of global learning rate the update of the weights ($$\Delta\theta$$) at every iteration is very small. In Figure 1 we can see that with a $$\epsilon = 0.01$$ the regression line can't fit the generated points  and the loss is still very high after 2000 epochs. This is because the updates are so small that the learning process of the gradient descent is strongly slowed down by the AdaGrad optimizer.
+For the quadratic regression the element-wise product of the gradient is systematically very large. Therefore, by using a small value of global learning rate the update of the weights ($$\Delta\theta$$) at every iteration is almost negligible. In Figure 1 we can see that with a $$\epsilon = 0.01$$ the regression line can't fit the generated points  and the loss is still very high after 2000 epochs. This is because the updates are so small that the learning process of the gradient descent is strongly slowed down by the AdaGrad optimizer.
 
 <figure class="half full">
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/AdaReg01.png" alt="SGD with momentum loss">
@@ -58,7 +56,7 @@ By increasing the global learning rate, we can compensate the effect of AdaGrad.
 
 ## RMSProp optimizer
 
-The RMSProp optimizer uses a decay rate $$\rho$$ for the accumulated gradient that damps the effect of the systematic high values of a parameter partial derivative.
+The RMSProp optimizer uses a decay rate $$\rho$$ for the accumulated gradient that damps the effect of the systematic high values of a parameter's partial derivative.
 
 ## RMSProp implementation
 
@@ -85,3 +83,8 @@ As shown in Figure 3, the introduction of the decay factor makes the gradient de
 <img src="{{ site.url }}{{ site.baseurl }}/OptimizerComparison/RMSLoss01.png" alt="RMS loss">
 <figcaption>Figure 3: Regression and Loss function with RMSPRop Optimizer,epsilon global = 0.01</figcaption>
 </figure>
+
+## References
+
++ [1] https://ruder.io/optimizing-gradient-descent/index.html#gradientdescentoptimizationalgorithms
++ [2] http://www.deeplearningbook.org/

@@ -6,7 +6,7 @@ author_profile: true
 header:
   image: "/pictures/TokyotrafficResize.jpg"
 toc: true
-toc_label: "Projects"
+toc_label: "Topics"
 toc_icon: "cog"
 toc_sticky: true
 ---
