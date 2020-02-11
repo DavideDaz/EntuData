@@ -34,7 +34,7 @@ We can see from Figure 1 the difference of the two approaches:
 Its implementation differs from the other just for the instant at which the gradient is calculated:
 
 * Update the weights with previously calculated velocity:
-$$ \mathbf{\widetilde{\theta}} \leftarrow \mathbf{\theta}+\textbf{v}$$
+$$ \mathbf{\widetilde{\theta}} \leftarrow \mathbf{\theta}+\alpha\textbf{v}$$
 * Calculate the gradient based on the new weights
 $$ \textbf{g} \leftarrow \frac{1}{m}\nabla_\theta\sum_{i=1}^m L(\textit{f} (\mathbf{x}^{(i)};\mathbf{\widetilde{\theta}}),\mathbf{y}^{(i)})$$
 * Compute the velocity update:
